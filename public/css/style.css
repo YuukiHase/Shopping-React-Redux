@@ -3,17 +3,26 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #5d4954;
-    /* background: linear-gradient(#FFD0C7, #FF775F); */
+    /* color: rgb(226, 226, 226); */
+    /* background-color: #5d4954; */
+    background-color: #FF9683;
     font-family: 'Poppins', sans-serif;
 }
 .logo {
-    color: rgb(226, 226, 226);
+    color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 22px;
@@ -21,13 +30,13 @@ nav {
 .nav-links {
     display: flex;
     justify-content: space-around;
-    width: 30%;
+    width: 50%;
 }
 .nav-links li {
     list-style: none;
 }
 .nav-links a {
-    color: rgb(226, 226, 226);
+    color: #FFFFFF;
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
@@ -41,15 +50,22 @@ nav {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: rgb(226, 226, 226);
+    background-color: #FFFFFF;
     margin: 5px;
     transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1024px) {
-    .nav-links {
-        width: 40%;
-    }
+.cart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #FFFFFF;
+    padding: 5px;
+    border-radius: 4px;
+}
+.cart-icon a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,21 +75,30 @@ nav {
     .nav-links {
         position: absolute;
         right: 0px;
-        height: 92vh;
+        height: 80vh;
         top: 8vh;
-        background-color: #5d4954;
+        background-color: #FF9683;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
-        transform: translateX(100%);
+        transform: translateX(-200%);
+        -webkit-transition: -webkit-transform 0.5s ease-in;
         transition: transform 0.5s ease-in;
+        z-index: 99;
     }
     .nav-links li {
         opacity: 0;
     }
     .burger {
         display: block;
+    }
+    .cart {
+        width: 20%;
+        border: none;
+        padding: none;
+    }
+    .notification {
+        display: none;
     }
 }
 
@@ -100,4 +125,123 @@ nav {
 }
 .toggle-burger .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Product */
+.presentation {
+    height: 80vh;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.introduction {
+    flex: 1;
+    border: 1px solid green;
+}
+.intro-text h1 {
+    color: white;
+    font-size: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right, #FF775F, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.intro-text p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #FF775F;
+}
+.cta {
+    padding: 50px 0px 0px 0px;
+}
+.cta-select, .cta-add {
+    background: linear-gradient(90deg, #FF775F, #FFB5A6);
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.cta-select {
+    width: 150px;
+    height: 50px;
+}
+.cta-add {
+    width: 150px;
+    height: 50px;
+    margin: 0px 0px 0px 30px;
+}
+
+.cover {
+    border: 1px solid green;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    position: relative;
+}
+.cover > img {
+    height: 100%;
+    filter: drop-shadow(0px 5px 3px black);
+    animation: drop 1.5s ease;
+}
+
+/* Selection */
+.product-select {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -15px;
+}
+
+@keyframes drop {
+    from {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .presentation {
+        height: 100%;
+        flex-direction: column;
+    }
+    .introduction {
+        margin-top: 5vh;
+        text-align: center;
+        order: 1;
+    }
+    .cover {
+        order: 0;
+    }
+    .intro-text h1 {
+        font-size: 30px;
+    }
+    .cta {
+        padding-top: 30px;
+    }
+    .product-select {
+        width: 50%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cta {
+        padding-bottom: 10px;
+    }
+    .cta-select {
+        width: 120px;
+    }
+    .cta-add {
+        width: 120px;
+    }
 }
