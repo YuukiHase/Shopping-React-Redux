@@ -22,10 +22,15 @@ nav {
     font-family: 'Poppins', sans-serif;
 }
 .logo {
+    height: 8vh;
+    display: flex;
+    align-items: center;
     color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 22px;
+    cursor: pointer;
+    user-select: none;
 }
 .nav-links {
     display: flex;

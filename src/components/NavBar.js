@@ -3,19 +3,19 @@ import React from 'react';
 class NavBar extends React.Component {
     render() {
         return (
-            <nav className="wave-effect">
-                <div className="logo">
+            <nav>
+                <div className="logo wave-effect">
                     <h4>The Nav</h4>
                 </div>
                 <ul className="nav-links">
                     <li>
-                        <a href="#">Home</a>
+                        <a className="wave-effect" href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Products</a>
+                        <a className="wave-effect" href="#">Products</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a className="wave-effect" href="#">Contact</a>
                     </li>
                 </ul>
                 <div className="cart">
