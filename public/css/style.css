@@ -138,7 +138,6 @@ nav {
 }
 .introduction {
     flex: 1;
-    border: 1px solid green;
 }
 .intro-text h1 {
     color: white;
@@ -176,7 +175,6 @@ nav {
 }
 
 .cover {
-    border: 1px solid green;
     flex: 1;
     display: flex;
     justify-content: center;
