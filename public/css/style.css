@@ -4,44 +4,57 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 nav {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
     /* color: rgb(226, 226, 226); */
     /* background-color: #5d4954; */
-    background-color: #FF9683;
-    font-family: 'Poppins', sans-serif;
+    background-color: #ff9683;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
 }
+
 .logo {
     height: 8vh;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 22px;
     cursor: pointer;
     user-select: none;
 }
+
 .nav-links {
     display: flex;
     justify-content: space-around;
     width: 50%;
 }
+
 .nav-links li {
     list-style: none;
 }
+
 .nav-links a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
@@ -52,10 +65,11 @@ nav {
     display: none;
     cursor: pointer;
 }
+
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -64,51 +78,56 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     padding: 5px;
-    border-radius: 4px;
+    border-radius: 3px;
+    z-index: 100;
 }
+
 .cart-icon a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
     .nav-links {
         position: absolute;
         right: 0px;
-        height: 80vh;
+        height: 100%;
         top: 8vh;
-        background-color: #FF9683;
+        background-color: #ff9683;
         display: flex;
         flex-direction: column;
         align-items: center;
-        transform: translateX(-200%);
+        transform: translateY(-100%);
         -webkit-transition: -webkit-transform 0.5s ease-in;
         transition: transform 0.5s ease-in;
         z-index: 99;
     }
+
     .nav-links li {
         opacity: 0;
     }
+
     .burger {
         display: block;
+        order: 1;
+        margin-left: 10px;
     }
+
     .cart {
         width: 20%;
         border: none;
         padding: none;
     }
+
     .notification {
         display: none;
     }
 }
 
 .nav-burger-active {
-    transform: translateX(0%);
+    transform: translateY(0%);
 }
 
 @keyframes navLinkFade {
@@ -116,6 +135,7 @@ nav {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0px);
@@ -125,58 +145,105 @@ nav {
 .toggle-burger .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .toggle-burger .line2 {
     opacity: 0;
 }
+
 .toggle-burger .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Product */
 .presentation {
-    height: 80vh;
     display: flex;
+    height: 80vh;
     width: 80%;
-    margin: auto;
     justify-content: center;
     align-items: center;
 }
-.introduction {
-    flex: 1;
-}
+
 .intro-text h1 {
     color: white;
     font-size: 44px;
     font-weight: 500;
-    background: linear-gradient(to right, #FF775F, #FFFFFF);
-    -webkit-background-clip: text;
+    background: linear-gradient(to right, #ff775f, #ffffff);
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .intro-text p {
     margin-top: 5px;
     font-size: 16px;
-    color: #FF775F;
+    color: #ff775f;
 }
+
+.intro-text .rating {
+    display: flex;
+    padding-top: 20px;
+    color: #ff775f;
+}
+
+.intro-text .rating .rating-star {
+    padding-left: 10px;
+    color: hsl(38, 100%, 50%);
+}
+
 .cta {
-    padding: 50px 0px 0px 0px;
+    display: flex;
+    padding: 20px 0px 0px 0px;
 }
-.cta-select, .cta-add {
-    background: linear-gradient(90deg, #FF775F, #FFB5A6);
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
+
+.cta-select {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.cta-select-quantity {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    border: 1px solid #ff775f;
+    color: #ff775f;
+}
+
+.cta-select-edit-quantity {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cta-select-edit-quantity span {
+    padding: 5px 7px;
+    font-size: 13px;
+    background-color: #ff9683;
+    border-radius: 3px;
     cursor: pointer;
 }
-.cta-select {
-    width: 150px;
-    height: 50px;
+
+.cta-select-edit-quantity span.fa:hover {
+    background-color: #ff775f;
 }
+
 .cta-add {
     width: 150px;
     height: 50px;
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 20px;
+    background: linear-gradient(90deg, #ff775f, #ffb5a6);
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
 }
 
 .cover {
@@ -186,7 +253,8 @@ nav {
     height: 60vh;
     position: relative;
 }
-.cover > img {
+
+.cover>img {
     height: 100%;
     filter: drop-shadow(0px 5px 3px black);
     animation: drop 1.5s ease;
@@ -206,6 +274,7 @@ nav {
         opacity: 0;
         transform: translateY(-80px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0px);
@@ -217,20 +286,25 @@ nav {
         height: 100%;
         flex-direction: column;
     }
+
     .introduction {
         margin-top: 5vh;
-        text-align: center;
         order: 1;
     }
+
     .cover {
         order: 0;
     }
+
     .intro-text h1 {
         font-size: 30px;
     }
+
     .cta {
         padding-top: 30px;
+        justify-content: center;
     }
+
     .product-select {
         width: 50%;
         padding-bottom: 10px;
@@ -241,9 +315,11 @@ nav {
     .cta {
         padding-bottom: 10px;
     }
+
     .cta-select {
         width: 120px;
     }
+
     .cta-add {
         width: 120px;
     }

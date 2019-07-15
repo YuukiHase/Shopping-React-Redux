@@ -8,11 +8,11 @@ class ProductSelection extends React.Component {
     render() {
         return (
             <div className="product-select">
-                <img src={arrowLeft} />
-                <img src={dot} />
-                <img src={dotFull} />
-                <img src={dotFull} />
-                <img src={arrowRight} />
+                <img src={arrowLeft} alt="arrow" />
+                <img src={dot} alt="dot" />
+                <img src={dotFull} alt="dot" />
+                <img src={dotFull} alt="dot" />
+                <img src={arrowRight} alt="arrow" />
             </div>
         );
     }
